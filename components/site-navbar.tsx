@@ -29,29 +29,9 @@ const items = [
     icon: Home,
   },
   {
-    title: "Dashboard",
-    url: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    title: "Store",
-    url: "/store",
-    icon: Store,
-  },
-  {
     title: "Blog",
     url: "/blog",
     icon: BookOpen,
-  },
-  {
-    title: "Query url",
-    url: "/query-url",
-    icon: LinkIcon,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
   },
 ]
 
@@ -63,20 +43,23 @@ export function SiteNavbar() {
           <NavigationMenuList>
             {items.map((item) => (
               <NavigationMenuItem key={item.title}>
-                <Link href={item.url} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  asChild
+                  className={navigationMenuTriggerStyle()}
+                >
+                  <Link href={item.url} passHref>
                     <span className="flex items-center gap-2">
                       <item.icon className="h-4 w-4" />
                       {item.title}
                     </span>
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center gap-2">
-          <ThemeSelector />
+          {/* <ThemeSelector /> */}
           <ModeToggle />
         </div>
       </div>

@@ -8,6 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@contentful/rich-text-plain-text-renderer':
+        specifier: ^17.1.5
+        version: 17.1.5
+      '@contentful/rich-text-react-renderer':
+        specifier: ^16.1.5
+        version: 16.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@contentful/rich-text-types':
+        specifier: ^17.2.4
+        version: 17.2.4
       '@radix-ui/react-dialog':
         specifier: ^1.1.4
         version: 1.1.4(@types/react-dom@18.2.0)(@types/react@18.2.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -284,6 +293,21 @@ packages:
   '@babel/types@7.24.7':
     resolution: {integrity: sha512-XEFXSlxiG5td2EJRe8vOmRbaXVgfcBlszKujvVmWIK/UpywWljQCfzAv3RQCGujWQ1RD4YYWEAqDXfuJiy8f5Q==}
     engines: {node: '>=6.9.0'}
+
+  '@contentful/rich-text-plain-text-renderer@17.1.5':
+    resolution: {integrity: sha512-N3IX2k5Zs93PaI6nnVjCRk+vqfbc1uuYofAnRsniTa3gTj1fkf0FtdjYJOkWsBZjJxhT9y3RI2d9FoLT+a97dQ==}
+    engines: {node: '>=6.0.0'}
+
+  '@contentful/rich-text-react-renderer@16.1.5':
+    resolution: {integrity: sha512-5iGG70YVH1f0zcsG7zKOCHdF5zHo38dpCXdAw5gjPpJkI5MTI200KUKU+q0B55Bdp4PzFQr6EcTSUI+k6jluyw==}
+    engines: {node: '>=6.0.0'}
+    peerDependencies:
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  '@contentful/rich-text-types@17.2.4':
+    resolution: {integrity: sha512-3y456l+x5aPzqcvjpG6L66sIkfH66rBl1QtGKexgJ3Nvd6k4ORvpAJ6gMDBz3WMAYvXGrVZMyhlFE0e6UdHngA==}
+    engines: {node: '>=6.0.0'}
 
   '@drizzle-team/brocli@0.10.2':
     resolution: {integrity: sha512-z33Il7l5dKjUgGULTqBsQBQwckHh5AbIuxhdsIxDDiZAzBOrZO6q9ogcWC65kU382AfynTfgNumVcNIjuIua6w==}
@@ -776,6 +800,25 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@lingui/core@5.5.2':
+    resolution: {integrity: sha512-YhKdfXOSEr64mEsPL7DbgGhoXJhI+DSysZHA43K9ZuG322JEql+luvRZpH/NobLBMiM1SjoLVWazEsqIkGuPDQ==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@lingui/babel-plugin-lingui-macro': 5.5.2
+      babel-plugin-macros: 2 || 3
+    peerDependenciesMeta:
+      '@lingui/babel-plugin-lingui-macro':
+        optional: true
+      babel-plugin-macros:
+        optional: true
+
+  '@lingui/message-utils@5.5.2':
+    resolution: {integrity: sha512-0/xu0nAzYm4ZLUHAdowkTLcP2iM+UOuFEpIsJ40iOIYgHeub1idtn8EFnliCiN83rfrcMaPK63MgGKmyTI4Umg==}
+    engines: {node: '>=20.0.0'}
+
+  '@messageformat/parser@5.1.1':
+    resolution: {integrity: sha512-3p0YRGCcTUCYvBKLIxtDDyrJ0YijGIwrTRu1DT8gIviIDZru8H23+FkY6MJBzM1n9n20CiM4VeDYuBsrrwnLjg==}
 
   '@next/env@15.5.2':
     resolution: {integrity: sha512-Qe06ew4zt12LeO6N7j8/nULSOe3fMXE4dM6xgpBQNvdzyK1sv5y4oAP3bq4LamrvGCZtmRYnW8URFCeX5nFgGg==}
@@ -2790,6 +2833,10 @@ packages:
     resolution: {integrity: sha512-Fd4gABb+ycGAmKou8eMftCupSir5lRxqf4aD/vd0cD2qc4HL07OjCeuHMr8Ro4CoMaeCKDB0/ECBOVWjTwUvPQ==}
     engines: {node: '>=8'}
 
+  is-plain-obj@3.0.0:
+    resolution: {integrity: sha512-gwsOE28k+23GP1B6vFl1oVh/WOzmawBrKwo5Ev6wMKzPkaXaCDIQKzLnvsA42DRlbVTWorkgTKIviAKCWkfUwA==}
+    engines: {node: '>=10'}
+
   is-regex@1.1.4:
     resolution: {integrity: sha512-kvRdxDsxZjhzUX07ZnLydzS1TU/TJlTUHHY4YLL87e37oUA49DfkLqgy+VjFocowy29cKvcSiu+kIv728jTTVg==}
     engines: {node: '>= 0.4'}
@@ -2852,6 +2899,9 @@ packages:
 
   js-cookie@2.2.1:
     resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
+
+  js-sha256@0.10.1:
+    resolution: {integrity: sha512-5obBtsz9301ULlsgggLg542s/jqtddfOpV5KJc4hajc9JV8GeY2gZHSVpYBn4nWqAUTJ9v+xwtbJ1mIBgIH5Vw==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -3065,6 +3115,9 @@ packages:
     resolution: {integrity: sha512-+hEnITedc8LAtIP9u3HJDFIdcLV2vXP33sqLLIzkv1Db1zO/1OxbvYf0Y1OC/S/Qo5dxHXepofhmxL02PsKe+A==}
     engines: {node: '>=10'}
     hasBin: true
+
+  moo@0.5.2:
+    resolution: {integrity: sha512-iSAJLHYKnX41mKcJKjqvnAN9sf0LMDTXDEvFv+ffuRR9a1MIuXLjMNL6EsnDHSkKLTWNqQQ5uo61P4EbU4NU+Q==}
 
   motion-dom@11.14.3:
     resolution: {integrity: sha512-lW+D2wBy5vxLJi6aCP0xyxTxlTfiu+b+zcpVbGVFUxotwThqhdpPRSmX8xztAgtZMPMeU0WGVn/k1w4I+TbPqA==}
@@ -4122,6 +4175,30 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
 
+  '@contentful/rich-text-plain-text-renderer@17.1.5':
+    dependencies:
+      '@contentful/rich-text-types': 17.2.4
+    transitivePeerDependencies:
+      - '@lingui/babel-plugin-lingui-macro'
+      - babel-plugin-macros
+
+  '@contentful/rich-text-react-renderer@16.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@contentful/rich-text-types': 17.2.4
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - '@lingui/babel-plugin-lingui-macro'
+      - babel-plugin-macros
+
+  '@contentful/rich-text-types@17.2.4':
+    dependencies:
+      '@lingui/core': 5.5.2
+      is-plain-obj: 3.0.0
+    transitivePeerDependencies:
+      - '@lingui/babel-plugin-lingui-macro'
+      - babel-plugin-macros
+
   '@drizzle-team/brocli@0.10.2': {}
 
   '@emnapi/runtime@1.5.0':
@@ -4446,6 +4523,20 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  '@lingui/core@5.5.2':
+    dependencies:
+      '@babel/runtime': 7.24.7
+      '@lingui/message-utils': 5.5.2
+
+  '@lingui/message-utils@5.5.2':
+    dependencies:
+      '@messageformat/parser': 5.1.1
+      js-sha256: 0.10.1
+
+  '@messageformat/parser@5.1.1':
+    dependencies:
+      moo: 0.5.2
 
   '@next/env@15.5.2': {}
 
@@ -6515,6 +6606,8 @@ snapshots:
 
   is-path-inside@3.0.3: {}
 
+  is-plain-obj@3.0.0: {}
+
   is-regex@1.1.4:
     dependencies:
       call-bind: 1.0.7
@@ -6574,6 +6667,8 @@ snapshots:
   jiti@2.4.2: {}
 
   js-cookie@2.2.1: {}
+
+  js-sha256@0.10.1: {}
 
   js-tokens@4.0.0: {}
 
@@ -6743,6 +6838,8 @@ snapshots:
   mitt@3.0.1: {}
 
   mkdirp@2.1.6: {}
+
+  moo@0.5.2: {}
 
   motion-dom@11.14.3: {}
 
