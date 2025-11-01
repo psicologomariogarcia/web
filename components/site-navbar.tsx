@@ -7,6 +7,8 @@ import {
   LayoutDashboard,
   Settings,
   Link as LinkIcon,
+  Brain,
+  GraduationCap,
 } from "lucide-react"
 
 import {
@@ -33,6 +35,27 @@ const items = [
     url: "/blog",
     icon: BookOpen,
   },
+  {
+    title: "Servicios",
+    url: "/servicios",
+    icon: Store,
+  },
+  {
+    title: "Recursos",
+    url: "/recursos",
+    icon: Brain,
+  },
+  {
+    title: "Academia online",
+    url: "/academia-online",
+    icon: BookOpen,
+  },
+  {
+    title: "Panel interno (mínimo)",
+    url: "/panel-interno-minimo",
+    icon: BookOpen,
+  }
+  
 ]
 
 export function SiteNavbar() {
