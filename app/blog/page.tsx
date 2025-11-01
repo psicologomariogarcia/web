@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import Link from "next/link"
 
-export const revalidate = 60 * 15
+export const revalidate = 900
 
 export const metadata = {
   title: "Blog | MG Psicología",

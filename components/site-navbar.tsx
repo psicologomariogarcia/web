@@ -41,21 +41,20 @@ const items = [
     icon: Store,
   },
   {
-    title: "Recursos",
-    url: "/recursos",
-    icon: Brain,
+    title: "Academia online",
+    url: "/academia-online",
+    icon: GraduationCap,
   },
   {
     title: "Academia online",
     url: "/academia-online",
-    icon: BookOpen,
+    icon: GraduationCap,
   },
   {
-    title: "Panel interno (mínimo)",
-    url: "/panel-interno-minimo",
-    icon: BookOpen,
-  }
-  
+    title: "Recursos",
+    url: "/recursos",
+    icon: Brain,
+  },
 ]
 
 export function SiteNavbar() {
@@ -73,7 +72,7 @@ export function SiteNavbar() {
                   <Link href={item.url} passHref>
                     <span className="flex items-center gap-2">
                       <item.icon className="h-4 w-4" />
-                      {item.title}
+                     {/*  {item.title} */}
                     </span>
                   </Link>
                 </NavigationMenuLink>

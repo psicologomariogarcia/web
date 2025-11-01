@@ -10,12 +10,12 @@ import type { ReactNode } from "react"
 import { Badge } from "@/components/ui/badge"
 import { getBlogPostBySlug, getBlogSlugs } from "@/lib/contentful/client"
 
-export const revalidate = 60 * 15
+export const revalidate = 900
 
 type PageParams = {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageParams): Promise<Metadata> {
-  const post = await getBlogPostBySlug(params.slug)
+  const post = await getBlogPostBySlug((await params).slug)
 
   if (!post) {
     return {
@@ -69,7 +69,7 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params }: PageParams) {
-  const post = await getBlogPostBySlug(params.slug)
+  const post = await getBlogPostBySlug((await params).slug)
 
   if (!post) {
     notFound()
