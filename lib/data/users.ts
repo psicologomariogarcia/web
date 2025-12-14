@@ -43,8 +43,11 @@ export const upsertUser = async (payload: NewUser) => {
       target: users.id,
       set: {
         email: payload.email,
+        name: payload.name,
         fullName: payload.fullName,
         avatarUrl: payload.avatarUrl,
+        image: payload.image,
+        emailVerified: payload.emailVerified,
         roleId: payload.roleId,
         updatedAt: timestamp,
       },

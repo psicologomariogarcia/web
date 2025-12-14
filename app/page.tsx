@@ -76,7 +76,7 @@ export default function Home() {
             <div className="relative h-[400px] md:h-[500px] flex items-center justify-center">
               <div className="relative w-full h-full rounded-md overflow-hidden">
                 <Image
-                  src="/assets/mario.png"
+                  src="/assets/divan.png"
                   alt="Mario García - Psicólogo y divulgador"
                   fill
                   className="object-cover"
