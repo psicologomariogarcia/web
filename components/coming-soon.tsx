@@ -12,7 +12,7 @@ export default function ComingSoon() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-background to-secondary/20 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
       <div className="text-center space-y-8 max-w-2xl mx-auto">
         <div className="space-y-2">
           <h1

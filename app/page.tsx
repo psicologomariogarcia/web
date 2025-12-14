@@ -25,6 +25,8 @@ import {
   Mail,
   Phone,
 } from "lucide-react"
+import { FacebookEmbed } from "@/components/facebook-embed"
+import { InstagramEmbed } from "@/components/instagram-embed"
 
 export default function Home() {
   return (
@@ -252,7 +254,7 @@ export default function Home() {
               </ul>
             </div>
             <div className="relative">
-              <div className="rounded-md bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 p-8 border border-primary/20">
+              <div className="rounded-md bg-secondary/20 p-8 border border-primary/20">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="h-12 w-12 rounded-md bg-primary/20 flex items-center justify-center border border-primary/20">
@@ -338,6 +340,15 @@ export default function Home() {
             >
               <Link href="/blog">Leer artículos</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Facebook Section Embed */}
+      <section className="w-full py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-white">
+        <div className="mx-auto max-w-2xl text-center space-y-6">
+          <div className="flex justify-center">
+            <FacebookEmbed href="https://www.facebook.com/mariogarciapsic" />
           </div>
         </div>
       </section>
