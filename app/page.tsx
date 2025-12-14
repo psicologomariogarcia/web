@@ -88,8 +88,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Full-Width Topics Section - Dark Background */}
-      <section className="w-full py-16 md:py-20 px-6 sm:px-8 lg:px-12 bg-primary text-primary-foreground">
+      {/* Full-Width Topics Section - Light Background */}
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 lg:px-12 bg-muted border-y border-border">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-center max-w-4xl mx-auto">
             Puedo ayudarte en áreas de Psicoterapia y Psicología. A continuación
@@ -98,31 +98,31 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <div className="space-y-2">
               <h3 className="text-xl md:text-2xl font-semibold">Ansiedad</h3>
-              <p className="text-primary-foreground/80">
+              <p className="text-muted-foreground">
                 Estrategias para manejar y superar la ansiedad en diferentes
                 contextos de la vida.
               </p>
             </div>
             <div className="space-y-2">
               <h3 className="text-xl md:text-2xl font-semibold">Fobias</h3>
-              <p className="text-primary-foreground/80">
+              <p className="text-muted-foreground">
                 Técnicas especializadas para enfrentar y superar fobias
                 específicas.
               </p>
             </div>
             <div className="space-y-2">
               <h3 className="text-xl md:text-2xl font-semibold">Adicciones</h3>
-              <p className="text-primary-foreground/80">
+              <p className="text-muted-foreground">
                 Apoyo profesional en el proceso de recuperación y prevención de
                 recaídas.
               </p>
             </div>
           </div>
           <div className="flex justify-center gap-4 mt-8">
-            <button className="p-2 rounded-md border border-primary-foreground/30 hover:bg-primary-foreground/10 transition-colors">
+            <button className="p-2 rounded-md border border-border hover:bg-accent transition-colors">
               <ChevronLeft className="h-5 w-5" />
             </button>
-            <button className="p-2 rounded-md border border-primary-foreground/30 hover:bg-primary-foreground/10 transition-colors">
+            <button className="p-2 rounded-md border border-border hover:bg-accent transition-colors">
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>
@@ -206,7 +206,7 @@ export default function Home() {
       </section>
 
       {/* Value Proposition Section */}
-      <section className="w-full py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-secondary/20">
+      <section className="w-full py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-white">
         <div className="mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -296,7 +296,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="w-full py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-gradient-to-br from-primary/10 via-background to-accent/10">
+      <section className="w-full py-16 md:py-24 px-6 sm:px-8 lg:px-12 bg-white">
         <div className="mx-auto max-w-4xl text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold">
             ¿Quieres conocerme mejor?
@@ -342,7 +342,7 @@ export default function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="w-full py-16 md:py-20 px-6 sm:px-8 lg:px-12 bg-secondary/20">
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 lg:px-12 bg-muted/30">
         <div className="mx-auto max-w-2xl text-center space-y-6">
           <h2 className="text-2xl md:text-3xl font-bold">
             Divulgación en mi newsletter
