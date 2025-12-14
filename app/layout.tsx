@@ -94,7 +94,7 @@ export default async function RootLayout({
           <ActiveThemeProvider>
             <NuqsAdapter>
               <SiteNavbar />
-              <main className="w-full min-h-screen pt-14">{children}</main>
+              <main className="w-full min-h-screen pt-16">{children}</main>
             </NuqsAdapter>
             <Toaster />
           </ActiveThemeProvider>

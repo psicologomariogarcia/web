@@ -1,32 +1,30 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { useState } from "react"
 import {
-  Calendar,
-  Store,
   BookOpen,
   Home,
-  LayoutDashboard,
-  Settings,
-  Link as LinkIcon,
   Brain,
   GraduationCap,
+  Store,
+  Menu,
 } from "lucide-react"
-
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import { ThemeSelector } from "./theme-selector"
+import { cn } from "@/lib/utils"
 import { ModeToggle } from "./mode-toggle"
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 
-// Menu items - reusing the same items from the sidebar
+// Menu items
 const items = [
   {
-    title: "Home",
+    title: "Inicio",
     url: "/",
     icon: Home,
   },
@@ -46,11 +44,6 @@ const items = [
     icon: GraduationCap,
   },
   {
-    title: "Academia online",
-    url: "/academia-online",
-    icon: GraduationCap,
-  },
-  {
     title: "Recursos",
     url: "/recursos",
     icon: Brain,
@@ -58,33 +51,85 @@ const items = [
 ]
 
 export function SiteNavbar() {
+  const pathname = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
-    <div className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="px-10 flex h-14 justify-between items-center">
-        <NavigationMenu>
-          <NavigationMenuList>
-            {items.map((item) => (
-              <NavigationMenuItem key={item.title}>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle()}
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo/Brand */}
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-lg font-bold text-primary hover:text-primary/80 transition-colors"
+          >
+            <span>Mario García</span>
+          </Link>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center gap-1">
+            {items.map((item) => {
+              const isActive = pathname === item.url
+              return (
+                <Link
+                  key={item.title}
+                  href={item.url}
+                  className={cn(
+                    "flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-colors",
+                    isActive
+                      ? "bg-accent text-accent-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                  )}
                 >
-                  <Link href={item.url} passHref>
-                    <span className="flex items-center gap-2">
-                      <item.icon className="h-4 w-4" />
-                     {/*  {item.title} */}
-                    </span>
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-        <div className="flex items-center gap-2">
-          {/* <ThemeSelector /> */}
-          <ModeToggle />
+                  <item.icon className="h-4 w-4" />
+                  <span>{item.title}</span>
+                </Link>
+              )
+            })}
+          </nav>
+
+          {/* Mobile Menu & Theme Toggle */}
+          <div className="flex items-center gap-2">
+            <ModeToggle />
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <button
+                  className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors"
+                  aria-label="Abrir menú"
+                >
+                  <Menu className="h-5 w-5" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <SheetHeader>
+                  <SheetTitle>Navegación</SheetTitle>
+                </SheetHeader>
+                <nav className="flex flex-col gap-2 mt-6">
+                  {items.map((item) => {
+                    const isActive = pathname === item.url
+                    return (
+                      <Link
+                        key={item.title}
+                        href={item.url}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={cn(
+                          "flex items-center gap-3 px-4 py-3 text-base font-medium rounded-md transition-colors",
+                          isActive
+                            ? "bg-accent text-accent-foreground"
+                            : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                        )}
+                      >
+                        <item.icon className="h-5 w-5" />
+                        <span>{item.title}</span>
+                      </Link>
+                    )
+                  })}
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
