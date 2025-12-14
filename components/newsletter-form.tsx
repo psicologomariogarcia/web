@@ -21,13 +21,13 @@ export function NewsletterForm() {
     >
       <Input
         type="email"
-        placeholder="Enter your email"
+        placeholder="Tu correo electrónico"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
         className="sm:min-w-[300px]"
       />
-      <Button>Notify Me</Button>
+      <Button>Suscribirme</Button>
     </form>
   )
 }
