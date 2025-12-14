@@ -55,9 +55,9 @@ export function SiteNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4">
+      <div className="rounded-lg border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-lg">
+        <div className="flex h-14 items-center justify-between px-4 sm:px-6">
           {/* Logo/Brand */}
           <Link
             href="/"
@@ -77,7 +77,7 @@ export function SiteNavbar() {
                   className={cn(
                     "flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-colors",
                     isActive
-                      ? "bg-accent text-accent-foreground"
+                      ? "text-primary"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                   )}
                 >
@@ -115,7 +115,7 @@ export function SiteNavbar() {
                         className={cn(
                           "flex items-center gap-3 px-4 py-3 text-base font-medium rounded-md transition-colors",
                           isActive
-                            ? "bg-accent text-accent-foreground"
+                            ? "text-primary"
                             : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                         )}
                       >

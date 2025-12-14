@@ -18,6 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        overlay:
+          "bg-[var(--overlay-button)] text-[var(--overlay-button-foreground)] hover:bg-[var(--overlay-button)]/90",
+        "overlay-outline":
+          "border border-[var(--overlay-button-outline)] bg-transparent text-[var(--overlay-button-outline-foreground)] hover:bg-[var(--overlay-button-outline)]",
       },
       size: {
         default: "h-10 px-4 py-2",
