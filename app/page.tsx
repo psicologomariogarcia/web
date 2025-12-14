@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { NewsletterForm } from "@/components/newsletter-form"
+import { SiteFooter } from "@/components/site-footer"
 import {
   Heart,
   GraduationCap,
@@ -357,6 +358,9 @@ export default function Home() {
           <NewsletterForm />
         </div>
       </section>
+
+      {/* Footer */}
+      <SiteFooter />
     </div>
   )
 }
