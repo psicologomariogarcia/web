@@ -62,7 +62,7 @@ BETTER_AUTH_SECRET=<generate-a-random-secret-string>
 BETTER_AUTH_URL=http://localhost:3000  # or your production URL
 
 # Database (PostgreSQL)
-DATABASE_URL=postgres://postgres:postgres@localhost:5432/psicologo_db
+POSTGRES_URL=postgres://postgres:postgres@localhost:5432/psicologo_db
 
 # GitHub OAuth (create app at https://github.com/settings/developers)
 GITHUB_CLIENT_ID=<your-github-oauth-app-client-id>
