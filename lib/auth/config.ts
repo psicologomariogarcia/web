@@ -76,14 +76,14 @@ export const auth = betterAuth({
     enabled: false,
   },
   socialProviders: {
-    github: {
-      clientId: requiredEnv("GITHUB_CLIENT_ID"),
-      clientSecret: requiredEnv("GITHUB_CLIENT_SECRET"),
-    },
-    /* google: {
+    // github: {
+    //   clientId: requiredEnv("GITHUB_CLIENT_ID"),
+    //   clientSecret: requiredEnv("GITHUB_CLIENT_SECRET"),
+    // },
+    google: {
       clientId: requiredEnv("GOOGLE_CLIENT_ID"),
       clientSecret: requiredEnv("GOOGLE_CLIENT_SECRET"),
-    }, */
+    },
   },
   baseURL: getBaseURL(),
   basePath: "/api/auth",
