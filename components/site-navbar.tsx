@@ -10,9 +10,13 @@ import {
   GraduationCap,
   Store,
   Menu,
+  LogIn,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "./mode-toggle"
+import { Button } from "@/components/ui/button"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { useSession } from "@/lib/auth/client"
 import {
   Sheet,
   SheetContent,
@@ -53,6 +57,8 @@ const items = [
 export function SiteNavbar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { data: session } = useSession()
+  const user = session?.user
 
   return (
     <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4">
@@ -77,8 +83,8 @@ export function SiteNavbar() {
                   className={cn(
                     "flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-colors",
                     isActive
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                      ? "text-primary font-extrabold"
+                      : "text-foreground hover:text-foreground hover:bg-accent/50"
                   )}
                 >
                   <item.icon className="h-4 w-4" />
@@ -90,7 +96,64 @@ export function SiteNavbar() {
 
           {/* Mobile Menu & Theme Toggle */}
           <div className="flex items-center gap-2">
-            <ModeToggle />
+            {user ? (
+              <Link href="/dashboard" className="md:hidden">
+                <Avatar className="h-8 w-8 cursor-pointer hover:ring-2 hover:ring-primary transition-all">
+                  <AvatarImage
+                    src={user.image || undefined}
+                    alt={user.name || user.email || "User"}
+                  />
+                  <AvatarFallback className="text-xs">
+                    {user.name
+                      ? user.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")
+                          .toUpperCase()
+                          .slice(0, 2)
+                      : user.email?.[0]?.toUpperCase() || "U"}
+                  </AvatarFallback>
+                </Avatar>
+              </Link>
+            ) : (
+              <Button asChild variant="ghost" size="icon" className="md:hidden">
+                <Link href="/auth/sign-in" aria-label="Iniciar sesión">
+                  <LogIn className="h-4 w-4" />
+                </Link>
+              </Button>
+            )}
+            <div className="flex items-center gap-2">
+              <ModeToggle />
+              {/* Desktop Auth Button/Avatar */}
+              <div className="hidden md:flex items-center gap-2">
+                {user ? (
+                  <Link href="/dashboard">
+                    <Avatar className="h-8 w-8 cursor-pointer hover:ring-2 hover:ring-primary transition-all">
+                      <AvatarImage
+                        src={user.image || undefined}
+                        alt={user.name || user.email || "User"}
+                      />
+                      <AvatarFallback className="text-xs">
+                        {user.name
+                          ? user.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")
+                              .toUpperCase()
+                              .slice(0, 2)
+                          : user.email?.[0]?.toUpperCase() || "U"}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Link>
+                ) : (
+                  <Button asChild variant="ghost" size="icon">
+                    <Link href="/auth/sign-in" aria-label="Iniciar sesión">
+                      <LogIn className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                )}
+              </div>
+            </div>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <button
@@ -124,6 +187,54 @@ export function SiteNavbar() {
                       </Link>
                     )
                   })}
+                  {!user && (
+                    <div className="pt-4 border-t mt-2">
+                      <Button asChild variant="outline" className="w-full">
+                        <Link
+                          href="/auth/sign-in"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <LogIn className="h-5 w-5" />
+                          <span>Iniciar sesión</span>
+                        </Link>
+                      </Button>
+                    </div>
+                  )}
+                  {user && (
+                    <div className="pt-4 border-t mt-2">
+                      <Link
+                        href="/dashboard"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 text-base font-medium rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                      >
+                        <Avatar className="h-8 w-8">
+                          <AvatarImage
+                            src={user.image || undefined}
+                            alt={user.name || user.email || "User"}
+                          />
+                          <AvatarFallback className="text-xs">
+                            {user.name
+                              ? user.name
+                                  .split(" ")
+                                  .map((n) => n[0])
+                                  .join("")
+                                  .toUpperCase()
+                                  .slice(0, 2)
+                              : user.email?.[0]?.toUpperCase() || "U"}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium">
+                            {user.name || user.email}
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            Ver perfil
+                          </span>
+                        </div>
+                      </Link>
+                    </div>
+                  )}
                 </nav>
               </SheetContent>
             </Sheet>
