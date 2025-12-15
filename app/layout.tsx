@@ -1,6 +1,5 @@
 import { fontVariables } from "@/lib/fonts"
 import type { Metadata, Viewport } from "next"
-import { Inter as FontSans } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { SiteNavbar } from "@/components/site-navbar"
@@ -94,7 +93,7 @@ export default async function RootLayout({
           <ActiveThemeProvider>
             <NuqsAdapter>
               <SiteNavbar />
-              <main className="w-full min-h-screen pt-16">{children}</main>
+              <main className="w-full min-h-screen">{children}</main>
             </NuqsAdapter>
             <Toaster />
           </ActiveThemeProvider>

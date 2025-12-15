@@ -2,6 +2,7 @@ import {
   Geist,
   Geist_Mono,
   Instrument_Sans,
+  Instrument_Serif,
   Inter,
   Mulish,
   Noto_Sans_Mono,
@@ -24,6 +25,12 @@ const fontInstrument = Instrument_Sans({
   variable: "--font-instrument",
 })
 
+const fontInstrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-serif",
+})
+
 const fontNotoMono = Noto_Sans_Mono({
   subsets: ["latin"],
   variable: "--font-noto-mono",
@@ -43,6 +50,7 @@ export const fontVariables = cn(
   fontSans.variable,
   fontMono.variable,
   fontInstrument.variable,
+  fontInstrumentSerif.variable,
   fontNotoMono.variable,
   fontMullish.variable,
   fontInter.variable

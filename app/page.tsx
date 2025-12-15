@@ -20,114 +20,128 @@ import {
   CheckCircle2,
   Sparkles,
   Users,
-  ChevronLeft,
-  ChevronRight,
   Mail,
   Phone,
 } from "lucide-react"
 import { FacebookEmbed } from "@/components/facebook-embed"
 import { InstagramEmbed } from "@/components/instagram-embed"
+import Typewriter from "@/components/fancy/text/typewriter"
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col w-full">
-      {/* Hero Section - Split Layout */}
-      <section className="relative w-full py-16 md:py-24 px-6 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Text Content */}
-            <div className="space-y-6">
-              <Badge variant="outline" className="w-fit border">
-                Psicólogo y divulgador
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary">
-                Mario García
-              </h1>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-primary/80">
-                PSICOTERAPIA Y DIVULGACIÓN
-              </h2>
-              <div className="space-y-4 text-lg md:text-xl text-muted-foreground leading-relaxed">
-                <p>
-                  ¿Por qué hacemos lo que hacemos? ¿Por qué sentimos lo que
-                  sentimos?
-                </p>
-                <p>
-                  ¿Qué sabemos acerca de la naturaleza humana? ¿Qué funciona y
-                  qué no funciona si hablamos de un bienestar sostenible?
-                </p>
-                <p>¿Qué hace que la psicoterapia funcione?</p>
-              </div>
-              <p className="text-base md:text-lg font-medium text-foreground">
-                Mi compromiso es divulgar y ejercer mi profesión desde el rigor
-                que requiere esta hermosa disciplina.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="text-base">
-                  <Link href="/contacto">Contáctame</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="text-base border"
-                >
-                  <Link href="/blog">Leer blog</Link>
-                </Button>
-              </div>
+      {/* Full-Screen Hero Section */}
+      <section className="relative w-full h-screen">
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/concepto-de-diseno-de-interiores-para-el-hogar.jpg"
+            alt="Mario García - Psicólogo y divulgador"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay for better text contrast */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
+        {/* Content Overlay */}
+        <div className="relative h-full flex flex-col items-center justify-center">
+          <div className="text-center space-y-6 px-6 max-w-4xl mx-auto">
+            <Badge
+              variant="outline"
+              className="w-fit mx-auto border-white/20 bg-white/10 text-white backdrop-blur"
+            >
+              Psicólogo y divulgador
+            </Badge>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-white drop-shadow-2xl">
+              Mario García
+            </h1>
+            <h2 className="text-lg md:text-5xl lg:text-6xl font-thin tracking-tight text-white/95 drop-shadow-xl">
+              PSICOTERAPIA Y DIVULGACIÓN
+            </h2>
+            {/* <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto drop-shadow-lg">
+              Comprometidos con divulgar y ejercer mi profesión desde el rigor
+              que requiere esta hermosa disciplina.
+            </p> */}
+            <div className="flex flex-col text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl">
+              <span className="font-sans font-regular">Domina tu </span>
+              <span>
+                <span className="font-serif font-light">
+                  <Typewriter
+                    text={["Ansiedad", "Fobia", "Adicción"]}
+                    speed={100}
+                    deleteSpeed={50}
+                    waitTime={2000}
+                    loop={true}
+                    showCursor={false}
+                  />
+                </span>
+                <span>_</span>
+              </span>
             </div>
-            {/* Right: Image */}
-            <div className="relative h-[400px] md:h-[500px] flex items-center justify-center">
-              <div className="relative w-full h-full rounded-md overflow-hidden">
-                <Image
-                  src="/assets/divan.png"
-                  alt="Mario García - Psicólogo y divulgador"
-                  fill
-                  className="object-cover"
-                  priority
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <Button asChild size="lg" variant="overlay">
+                <Link href="/contacto">Contáctame</Link>
+              </Button>
+              <Button asChild size="lg" variant="overlay-outline">
+                <Link href="/blog">Leer blog</Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Typewriter Effect at Bottom */}
+          <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+            {/* <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl">
+              <span className="font-sans font-thin">Domina tu </span>
+              <span className="font-serif">
+                <Typewriter
+                  text={["Ansiedad", "Fobia", "Adicción"]}
+                  speed={100}
+                  deleteSpeed={50}
+                  waitTime={2000}
+                  loop={true}
+                  showCursor={false}
                 />
-              </div>
-            </div>
+              </span>
+            </div> */}
           </div>
         </div>
       </section>
 
-      {/* Full-Width Topics Section - Light Background */}
-      <section className="w-full py-16 md:py-20 px-6 sm:px-8 lg:px-12 bg-muted border-y border-border">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-center max-w-4xl mx-auto">
-            Puedo ayudarte en áreas de Psicoterapia y Psicología. A continuación
-            se enumeran solo algunos de los temas en los que podemos trabajar.
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            <div className="space-y-2">
-              <h3 className="text-xl md:text-2xl font-semibold">Ansiedad</h3>
-              <p className="text-muted-foreground">
-                Estrategias para manejar y superar la ansiedad en diferentes
-                contextos de la vida.
-              </p>
+      {/* Floating Topics Section */}
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-6xl">
+          <div className="rounded-lg border bg-card shadow-lg p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-center max-w-4xl mx-auto">
+              Puedo ayudarte en áreas de Psicoterapia y Psicología. A
+              continuación se enumeran solo algunos de los temas en los que
+              podemos trabajar.
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+              <div className="space-y-2">
+                <h3 className="text-xl md:text-2xl font-semibold">Ansiedad</h3>
+                <p className="text-muted-foreground">
+                  Estrategias para manejar y superar la ansiedad en diferentes
+                  contextos de la vida.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl md:text-2xl font-semibold">Fobias</h3>
+                <p className="text-muted-foreground">
+                  Técnicas especializadas para enfrentar y superar fobias
+                  específicas.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl md:text-2xl font-semibold">
+                  Adicciones
+                </h3>
+                <p className="text-muted-foreground">
+                  Apoyo profesional en el proceso de recuperación y prevención
+                  de recaídas.
+                </p>
+              </div>
             </div>
-            <div className="space-y-2">
-              <h3 className="text-xl md:text-2xl font-semibold">Fobias</h3>
-              <p className="text-muted-foreground">
-                Técnicas especializadas para enfrentar y superar fobias
-                específicas.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-xl md:text-2xl font-semibold">Adicciones</h3>
-              <p className="text-muted-foreground">
-                Apoyo profesional en el proceso de recuperación y prevención de
-                recaídas.
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center gap-4 mt-8">
-            <button className="p-2 rounded-md border border-border hover:bg-accent transition-colors">
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button className="p-2 rounded-md border border-border hover:bg-accent transition-colors">
-              <ChevronRight className="h-5 w-5" />
-            </button>
           </div>
         </div>
       </section>
